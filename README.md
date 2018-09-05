@@ -1,4 +1,4 @@
-# event-near-me
+# training-events-near-me
 
 ## Quick Start
 

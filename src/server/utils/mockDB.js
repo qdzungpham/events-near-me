@@ -10,7 +10,18 @@ const createMockDB = () => {
 
   const adapter = new FileSync(filePath);
   const db = low(adapter);
-  db.defaults({ movies: [], count: 0 }).write();
+  db.defaults({ events: [], count: 0 }).write();
+
+  returnEvents()
+    .then((response) => {
+      response.events.forEach((event) => {
+        db.get('events')
+          .push(event)
+          .write();
+        db.update('count', n => n + 1).write();
+      });
+    })
+    .catch(error => console.log(error));
 };
 
 createMockDB();
