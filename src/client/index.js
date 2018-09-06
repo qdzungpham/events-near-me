@@ -7,11 +7,21 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import Routes from './containers';
-import { requestEventsReducer, requestEventDetailReducer } from './reducers';
+import {
+  requestEventsReducer,
+  requestEventDetailReducer,
+  requestUserLocationReducer,
+  mouseOverMarkerReducer
+} from './reducers';
 
 const logger = createLogger();
 
-const rootReducers = combineReducers({ requestEventsReducer, requestEventDetailReducer });
+const rootReducers = combineReducers({
+  requestEventsReducer,
+  requestEventDetailReducer,
+  requestUserLocationReducer,
+  mouseOverMarkerReducer
+});
 
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger));
 

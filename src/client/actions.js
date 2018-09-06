@@ -5,7 +5,12 @@ import {
   REQUEST_EVENTS_FAILED,
   REQUEST_EVENT_DETAIL_FAILED,
   REQUEST_EVENT_DETAIL_SUCCESS,
-  REQUEST_EVENT_DETAIL_PENDING
+  REQUEST_EVENT_DETAIL_PENDING,
+  REQUEST_USER_LOCATION_FAILED,
+  REQUEST_USER_LOCATION_SUCCESS,
+  REQUEST_USER_LOCATION_PENDING,
+  MOUSE_OVER_MARKER,
+  MOUSE_OUT_MARKER
 } from './constants';
 
 export const requestEvents = (userCoords, withinDistance, nEvents) => (dispatch) => {
@@ -26,6 +31,15 @@ export const requestEvents = (userCoords, withinDistance, nEvents) => (dispatch)
     .catch(error => dispatch({ type: REQUEST_EVENTS_FAILED, payload: error }));
 };
 
+export const requestUserLocation = () => (dispatch) => {
+  dispatch({ type: REQUEST_USER_LOCATION_PENDING });
+
+  axios
+    .get('http://ip-api.com/json')
+    .then(response => dispatch({ type: REQUEST_USER_LOCATION_SUCCESS, payload: response.data }))
+    .catch(error => dispatch({ type: REQUEST_USER_LOCATION_FAILED, payload: error }));
+};
+
 export const requestEventDetail = id => (dispatch) => {
   dispatch({ type: REQUEST_EVENT_DETAIL_PENDING });
 
@@ -34,3 +48,10 @@ export const requestEventDetail = id => (dispatch) => {
     .then(response => dispatch({ type: REQUEST_EVENT_DETAIL_SUCCESS, payload: response.data }))
     .catch(error => dispatch({ type: REQUEST_EVENT_DETAIL_FAILED, payload: error }));
 };
+
+export const mouseOverMarker = id => ({
+  type: MOUSE_OVER_MARKER,
+  payload: id
+});
+
+export const mouseOutMarker = () => ({ type: MOUSE_OUT_MARKER });

@@ -32,7 +32,7 @@ const formatDate = (dateString) => {
   });
 };
 const BrowseEventCard = (props) => {
-  const { classes, event } = props;
+  const { classes, event, overMarker } = props;
   return (
     <Card className={classes.card}>
       <Hidden xsDown>
@@ -47,6 +47,13 @@ const BrowseEventCard = (props) => {
           <Typography variant="subheading" color="textSecondary">
             {event.location}
           </Typography>
+          {overMarker !== event.id ? (
+            <div />
+          ) : (
+            <Typography variant="subheading" color="textSecondary">
+              hello
+            </Typography>
+          )}
         </CardContent>
       </div>
     </Card>
@@ -55,7 +62,8 @@ const BrowseEventCard = (props) => {
 
 BrowseEventCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  event: PropTypes.object.isRequired
+  event: PropTypes.object.isRequired,
+  overMarker: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(BrowseEventCard);
