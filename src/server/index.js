@@ -1,6 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const apiRouter = require('./routes/api');
+const { createMockDB } = require('./utils/mockDB');
+
+createMockDB();
+setInterval(createMockDB, 3600000);
 
 const app = express();
 

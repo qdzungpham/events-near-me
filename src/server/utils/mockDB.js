@@ -3,8 +3,8 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const { returnEvents } = require('./mockApi');
 
-const createMockDB = () => {
-  const filePath = './src/server/data/db.json';
+module.exports.createMockDB = () => {
+  const filePath = './src/data/db.json';
 
   fs.unlinkSync(filePath);
 
@@ -22,6 +22,6 @@ const createMockDB = () => {
       });
     })
     .catch(error => console.log(error));
-};
 
-createMockDB();
+  console.log('Created mock database.');
+};

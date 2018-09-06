@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
-import { connect } from 'react-redux';
 import { requestEvents } from '../actions';
 import AppBar from '../components/AppBar';
 import BrowseEventCard from '../components/BrowseEventCard';
+
+import { WITHIN_DISTANCE, N_EVENTS } from '../constants';
 
 const styles = theme => ({
   mainLayout: {
@@ -30,13 +33,13 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   // eslint-disable-next-line max-len
-  onRequestEvents: (userCoords, withinDistance) => dispatch(requestEvents(userCoords, withinDistance))
+  onRequestEvents: (userCoords, withinDistance, nEvents) => dispatch(requestEvents(userCoords, withinDistance, nEvents))
 });
 
 class BrowseContainer extends Component {
   componentDidMount() {
     const { onRequestEvents } = this.props;
-    onRequestEvents([-27.4797707, 153.035123], 100);
+    onRequestEvents([-27.4797707, 153.035123], WITHIN_DISTANCE, N_EVENTS);
   }
 
   render() {
@@ -49,7 +52,9 @@ class BrowseContainer extends Component {
           <Grid container spacing={40}>
             <Grid item xs={12} md={8}>
               {events.map(event => (
-                <BrowseEventCard key={event.id} event={event} />
+                <Link key={event.id} to={`/event/${event.id}`} style={{ textDecoration: 'none' }}>
+                  <BrowseEventCard event={event} />
+                </Link>
               ))}
             </Grid>
             <Grid item xs={12} md={4}>

@@ -171,6 +171,6 @@ module.exports.returnEvents = () => {
   const delay = time => result => new Promise(resolve => setTimeout(() => resolve(result), time));
 
   return Promise.resolve(data)
-    .then(delay(1500))
+    .then(delay(100))
     .then(result => result);
 };
