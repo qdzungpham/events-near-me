@@ -12,6 +12,11 @@ const styles = theme => ({
     display: 'flex',
     marginTop: theme.spacing.unit
   },
+  cardHover: {
+    display: 'flex',
+    marginTop: theme.spacing.unit,
+    'background-color': '#dddddd'
+  },
   cardDetails: {
     flex: 1
   },
@@ -32,9 +37,19 @@ const formatDate = (dateString) => {
   });
 };
 const BrowseEventCard = (props) => {
-  const { classes, event, overMarker } = props;
+  const {
+    classes, event, overMarker, onHoverEventCard
+  } = props;
+
+  const onMouseEnter = () => {
+    onHoverEventCard(event.id);
+  };
+
   return (
-    <Card className={classes.card}>
+    <Card
+      onMouseEnter={onMouseEnter}
+      className={overMarker !== event.id ? classes.card : classes.cardHover}
+    >
       <Hidden xsDown>
         <CardMedia className={classes.cardMedia} image={event.image} title={event.title} />
       </Hidden>
@@ -47,13 +62,6 @@ const BrowseEventCard = (props) => {
           <Typography variant="subheading" color="textSecondary">
             {event.location}
           </Typography>
-          {overMarker !== event.id ? (
-            <div />
-          ) : (
-            <Typography variant="subheading" color="textSecondary">
-              hello
-            </Typography>
-          )}
         </CardContent>
       </div>
     </Card>
@@ -63,7 +71,8 @@ const BrowseEventCard = (props) => {
 BrowseEventCard.propTypes = {
   classes: PropTypes.object.isRequired,
   event: PropTypes.object.isRequired,
-  overMarker: PropTypes.string.isRequired
+  overMarker: PropTypes.string.isRequired,
+  onHoverEventCard: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(BrowseEventCard);

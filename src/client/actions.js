@@ -9,8 +9,8 @@ import {
   REQUEST_USER_LOCATION_FAILED,
   REQUEST_USER_LOCATION_SUCCESS,
   REQUEST_USER_LOCATION_PENDING,
-  MOUSE_OVER_MARKER,
-  MOUSE_OUT_MARKER
+  HOVER_MARKER,
+  HOVER_EVENT_CARD
 } from './constants';
 
 export const requestEvents = (userCoords, withinDistance, nEvents) => (dispatch) => {
@@ -49,9 +49,12 @@ export const requestEventDetail = id => (dispatch) => {
     .catch(error => dispatch({ type: REQUEST_EVENT_DETAIL_FAILED, payload: error }));
 };
 
-export const mouseOverMarker = id => ({
-  type: MOUSE_OVER_MARKER,
+export const hoverMarker = id => ({
+  type: HOVER_MARKER,
   payload: id
 });
 
-export const mouseOutMarker = () => ({ type: MOUSE_OUT_MARKER });
+export const hoverEventCard = id => ({
+  type: HOVER_EVENT_CARD,
+  payload: id
+});

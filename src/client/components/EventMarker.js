@@ -13,12 +13,17 @@ class EventMarker extends React.Component {
   };
 
   onMouseOver = () => {
-    const { event, onMouseOverMarker } = this.props;
-    onMouseOverMarker(event.id);
+    const { event, onHoverMarker } = this.props;
+    onHoverMarker(event.id);
+  };
+
+  onMouseOut = () => {
+    const { onHoverMarker } = this.props;
+    onHoverMarker('-1');
   };
 
   render() {
-    const { event, onMouseOutMarker } = this.props;
+    const { event } = this.props;
     const { isOpen } = this.state;
     return (
       // eslint-disable-next-line
@@ -27,11 +32,11 @@ class EventMarker extends React.Component {
         position={{ lat: event.coords[0], lng: event.coords[1] }}
         onClick={this.onToggleOpen}
         onMouseOver={this.onMouseOver}
-        onMouseOut={onMouseOutMarker}
+        onMouseOut={this.onMouseOut}
       >
         {isOpen && (
           <InfoWindow onCloseClick={this.onToggleOpen}>
-            <h1>hello</h1>
+            <h3>{event.title}</h3>
           </InfoWindow>
         )}
       </Marker>
@@ -41,8 +46,7 @@ class EventMarker extends React.Component {
 
 EventMarker.propTypes = {
   event: PropTypes.object.isRequired,
-  onMouseOverMarker: PropTypes.func.isRequired,
-  onMouseOutMarker: PropTypes.func.isRequired
+  onHoverMarker: PropTypes.func.isRequired
 };
 
 export default EventMarker;

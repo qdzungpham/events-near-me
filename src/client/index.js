@@ -11,7 +11,8 @@ import {
   requestEventsReducer,
   requestEventDetailReducer,
   requestUserLocationReducer,
-  mouseOverMarkerReducer
+  hoverMarkerReducer,
+  hoverEventCardReducer
 } from './reducers';
 
 const logger = createLogger();
@@ -20,7 +21,8 @@ const rootReducers = combineReducers({
   requestEventsReducer,
   requestEventDetailReducer,
   requestUserLocationReducer,
-  mouseOverMarkerReducer
+  hoverMarkerReducer,
+  hoverEventCardReducer
 });
 
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger));

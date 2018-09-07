@@ -8,8 +8,8 @@ import {
   REQUEST_USER_LOCATION_PENDING,
   REQUEST_USER_LOCATION_SUCCESS,
   REQUEST_USER_LOCATION_FAILED,
-  MOUSE_OUT_MARKER,
-  MOUSE_OVER_MARKER
+  HOVER_MARKER,
+  HOVER_EVENT_CARD
 } from './constants';
 
 const initialStateEvents = {
@@ -66,16 +66,27 @@ export const requestUserLocationReducer = (state = initialStateUserLocation, act
   }
 };
 
-const initialStateMouseOverMarker = {
+const initialStateHoverMarker = {
   id: '-1'
 };
 
-export const mouseOverMarkerReducer = (state = initialStateMouseOverMarker, action = {}) => {
+export const hoverMarkerReducer = (state = initialStateHoverMarker, action = {}) => {
   switch (action.type) {
-    case MOUSE_OVER_MARKER:
+    case HOVER_MARKER:
       return Object.assign({}, state, { id: action.payload });
-    case MOUSE_OUT_MARKER:
-      return Object.assign({}, state, { id: '-1' });
+    default:
+      return state;
+  }
+};
+
+const initialStateHoverEventCard = {
+  id: '-1'
+};
+
+export const hoverEventCardReducer = (state = initialStateHoverEventCard, action = {}) => {
+  switch (action.type) {
+    case HOVER_EVENT_CARD:
+      return Object.assign({}, state, { id: action.payload });
     default:
       return state;
   }

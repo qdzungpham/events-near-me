@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -9,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import {
-  requestEvents, requestUserLocation, mouseOverMarker, mouseOutMarker
+  requestEvents, requestUserLocation, hoverMarker, hoverEventCard
 } from '../actions';
-import AppBar from '../components/AppBar';
+import SimpleAppBar from '../components/AppBar';
 import EventsMapContainer from './EventsMapContainer';
 import BrowseEvenList from '../components/BrowseEventList';
 
@@ -36,15 +35,16 @@ const mapStateToProps = state => ({
   userLocation: state.requestUserLocationReducer.userLocation,
   userLocationPending: state.requestUserLocationReducer.isPending,
   eventsPending: state.requestEventsReducer.isPending,
-  overMarker: state.mouseOverMarkerReducer.id
+  overMarker: state.hoverMarkerReducer.id,
+  overEventCard: state.hoverEventCardReducer.id
 });
 
 const mapDispatchToProps = dispatch => ({
   // eslint-disable-next-line max-len
   onRequestEvents: (userCoords, withinDistance, nEvents) => dispatch(requestEvents(userCoords, withinDistance, nEvents)),
   onRequestUserLocation: () => dispatch(requestUserLocation()),
-  onMouseOverMarker: id => dispatch(mouseOverMarker(id)),
-  onMouseOutMarker: () => dispatch(mouseOutMarker())
+  onHoverMarker: id => dispatch(hoverMarker(id)),
+  onHoverEventCard: id => dispatch(hoverEventCard(id))
 });
 
 class BrowseContainer extends Component {
@@ -69,14 +69,15 @@ class BrowseContainer extends Component {
       events,
       userLocation,
       eventsPending,
-      onMouseOutMarker,
-      onMouseOverMarker,
-      overMarker
+      onHoverMarker,
+      overMarker,
+      overEventCard,
+      onHoverEventCard
     } = this.props;
     return (
       <React.Fragment>
         <CssBaseline />
-        <AppBar title="Browse" />
+        <SimpleAppBar title="training-events-near-me" />
         <div className={classes.mainLayout}>
           <Grid container spacing={40}>
             <Grid item xs={12} md={7}>
@@ -87,7 +88,11 @@ class BrowseContainer extends Component {
                   <Typography variant="headline" gutterBottom>
                     {`Training Events near ${userLocation.city}, ${userLocation.country}`}
                   </Typography>
-                  <BrowseEvenList events={events} overMarker={overMarker} />
+                  <BrowseEvenList
+                    events={events}
+                    overMarker={overMarker}
+                    onHoverEventCard={onHoverEventCard}
+                  />
                 </div>
               )}
             </Grid>
@@ -98,8 +103,8 @@ class BrowseContainer extends Component {
                 <EventsMapContainer
                   events={events}
                   userLocation={userLocation}
-                  onMouseOutMarker={onMouseOutMarker}
-                  onMouseOverMarker={onMouseOverMarker}
+                  onHoverMarker={onHoverMarker}
+                  overEventCard={overEventCard}
                 />
               )}
             </Grid>
@@ -117,7 +122,11 @@ BrowseContainer.propTypes = {
   events: PropTypes.array.isRequired,
   userLocation: PropTypes.object.isRequired,
   eventsPending: PropTypes.bool.isRequired,
-  userLocationPending: PropTypes.bool.isRequired
+  userLocationPending: PropTypes.bool.isRequired,
+  onHoverMarker: PropTypes.func.isRequired,
+  overMarker: PropTypes.string.isRequired,
+  overEventCard: PropTypes.string.isRequired,
+  onHoverEventCard: PropTypes.func.isRequired
 };
 
 export default connect(

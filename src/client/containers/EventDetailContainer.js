@@ -13,7 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
 
 import { requestEventDetail } from '../actions';
-import AppBar from '../components/AppBar';
+import SimpleAppBar from '../components/AppBar';
 
 const styles = theme => ({
   mainLayout: {
@@ -86,7 +86,7 @@ class EventDetailContainer extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <AppBar title={event.title} />
+        <SimpleAppBar title="Event Detail" />
         <div className={classes.mainLayout}>
           <Card>
             <CardMedia image={event.image} className={classes.eventImage} />
@@ -133,7 +133,7 @@ class EventDetailContainer extends Component {
 }
 
 EventDetailContainer.propTypes = {
-  classes: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
   onRequestEvent: PropTypes.func.isRequired,
   event: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
