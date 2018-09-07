@@ -2,11 +2,11 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const distance = require('@turf/distance');
 const turf = require('@turf/helpers');
-
-const adapter = new FileSync('./src/data/db.json');
-const db = low(adapter);
+const { DB_FILE_PATH } = require('../constants');
 
 module.exports.getNearEvents = (userCoords, withinDistance, nEvents) => {
+  const adapter = new FileSync(DB_FILE_PATH);
+  const db = low(adapter);
   let events = db
     .get('events')
     .orderBy('dateTime')
@@ -30,10 +30,14 @@ module.exports.getNearEvents = (userCoords, withinDistance, nEvents) => {
     event => event.distance <= withinDistance && new Date(event.dateTime) >= new Date(Date.now())
   );
 
-  return events.slice(0, nEvents);
+  return events.length <= nEvents ? events : events.slice(0, nEvents);
 };
 
-module.exports.getEventDetail = id => db
-  .get('events')
-  .find({ id })
-  .value();
+module.exports.getEventDetail = (id) => {
+  const adapter = new FileSync(DB_FILE_PATH);
+  const db = low(adapter);
+  return db
+    .get('events')
+    .find({ id })
+    .value();
+};

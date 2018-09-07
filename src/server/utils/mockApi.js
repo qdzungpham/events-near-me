@@ -1,5 +1,4 @@
 // SOURCE: https://github.com/wolskis/GO1-Front-End-Test/blob/master/api/mockApi.js
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -168,9 +167,5 @@ module.exports.returnEvents = () => {
     ]
   };
 
-  const delay = time => result => new Promise(resolve => setTimeout(() => resolve(result), time));
-
-  return Promise.resolve(data)
-    .then(delay(100))
-    .then(result => result);
+  return data;
 };

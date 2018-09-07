@@ -24,7 +24,7 @@ export const requestEventsReducer = (state = initialStateEvents, action = {}) =>
     case REQUEST_EVENTS_SUCCESS:
       return Object.assign({}, state, { events: action.payload, isPending: false });
     case REQUEST_EVENTS_FAILED:
-      return Object.assign({}, state, { error: action.payload, isPending: false });
+      return Object.assign({}, state, { error: action.payload, isPending: true });
     default:
       return state;
   }
@@ -42,7 +42,7 @@ export const requestEventDetailReducer = (state = initialStateEventDetail, actio
     case REQUEST_EVENT_DETAIL_SUCCESS:
       return Object.assign({}, state, { eventDetail: action.payload, isPending: false });
     case REQUEST_EVENT_DETAIL_FAILED:
-      return Object.assign({}, state, { error: action.payload, isPending: false });
+      return Object.assign({}, state, { error: action.payload, isPending: true });
     default:
       return state;
   }
@@ -60,7 +60,7 @@ export const requestUserLocationReducer = (state = initialStateUserLocation, act
     case REQUEST_USER_LOCATION_SUCCESS:
       return Object.assign({}, state, { userLocation: action.payload, isPending: false });
     case REQUEST_USER_LOCATION_FAILED:
-      return Object.assign({}, state, { error: action.payload, isPending: false });
+      return Object.assign({}, state, { error: action.payload, isPending: true });
     default:
       return state;
   }

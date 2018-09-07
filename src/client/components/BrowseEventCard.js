@@ -36,6 +36,7 @@ const formatDate = (dateString) => {
     minute: '2-digit'
   });
 };
+
 const BrowseEventCard = (props) => {
   const {
     classes, event, overMarker, onHoverEventCard
