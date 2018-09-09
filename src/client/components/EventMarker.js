@@ -28,6 +28,7 @@ class EventMarker extends React.Component {
     return (
       // eslint-disable-next-line
       <Marker
+        id="marker"
         title={event.title}
         position={{ lat: event.coords[0], lng: event.coords[1] }}
         onClick={this.onToggleOpen}
@@ -35,7 +36,7 @@ class EventMarker extends React.Component {
         onMouseOut={this.onMouseOut}
       >
         {isOpen && (
-          <InfoWindow onCloseClick={this.onToggleOpen}>
+          <InfoWindow id="infowindow" onCloseClick={this.onToggleOpen}>
             <h3>{event.title}</h3>
           </InfoWindow>
         )}

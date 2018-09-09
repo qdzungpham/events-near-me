@@ -20,7 +20,7 @@ export const requestEvents = (userCoords, withinDistance, nEvents) => (dispatch)
     withinDistance,
     nEvents
   };
-  return axios
+  axios
     .post('/api/fetchNearEvents', data)
     .then((response) => {
       if (response.data.error) {

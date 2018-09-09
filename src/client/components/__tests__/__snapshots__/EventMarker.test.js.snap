@@ -34,6 +34,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": false,
+      "id": "marker",
       "onClick": [Function],
       "onMouseOut": [Function],
       "onMouseOver": [Function],
@@ -54,6 +55,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": false,
+        "id": "marker",
         "onClick": [Function],
         "onMouseOut": [Function],
         "onMouseOver": [Function],

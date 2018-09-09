@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventMapContainer renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <withProps(withScriptjs(withGoogleMap(Component)))
+    events={Array []}
+    onHoverMarker={[Function]}
+    overEventCard={[Function]}
+    userLocation={
+      Object {
+        "lat": 12,
+        "lon": 12,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "containerElement": <div
+        style={
+          Object {
+            "height": "400px",
+          }
+        }
+      />,
+      "events": Array [],
+      "googleMapURL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyDraTD9YAlK0aX50I_o-_L79g3DPirLYxA&v=3.exp&libraries=geometry,drawing,places",
+      "loadingElement": <div
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      />,
+      "mapElement": <div
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      />,
+      "onHoverMarker": [Function],
+      "overEventCard": [Function],
+      "userLocation": Object {
+        "lat": 12,
+        "lon": 12,
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "containerElement": <div
+          style={
+            Object {
+              "height": "400px",
+            }
+          }
+        />,
+        "events": Array [],
+        "googleMapURL": "https://maps.googleapis.com/maps/api/js?key=AIzaSyDraTD9YAlK0aX50I_o-_L79g3DPirLYxA&v=3.exp&libraries=geometry,drawing,places",
+        "loadingElement": <div
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        />,
+        "mapElement": <div
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        />,
+        "onHoverMarker": [Function],
+        "overEventCard": [Function],
+        "userLocation": Object {
+          "lat": 12,
+          "lon": 12,
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

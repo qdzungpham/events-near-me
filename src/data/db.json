@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Event Title A",
-      "dateTime": "2018-09-12T12:50:44.996Z",
+      "dateTime": "2018-09-14T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -16,7 +16,7 @@
     {
       "id": "2",
       "title": "Event Title B",
-      "dateTime": "2018-09-15T12:50:44.997Z",
+      "dateTime": "2018-09-18T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -29,7 +29,7 @@
     {
       "id": "3",
       "title": "Event Title C",
-      "dateTime": "2018-09-15T12:50:44.997Z",
+      "dateTime": "2018-09-17T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -42,7 +42,7 @@
     {
       "id": "4",
       "title": "Event Title D",
-      "dateTime": "2018-09-10T12:50:44.997Z",
+      "dateTime": "2018-09-11T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -55,7 +55,7 @@
     {
       "id": "5",
       "title": "Event Title E",
-      "dateTime": "2018-09-08T12:50:44.997Z",
+      "dateTime": "2018-09-09T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -68,7 +68,7 @@
     {
       "id": "6",
       "title": "Event Title F",
-      "dateTime": "2018-09-11T12:50:44.997Z",
+      "dateTime": "2018-09-12T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -81,7 +81,7 @@
     {
       "id": "7",
       "title": "Event Title G",
-      "dateTime": "2018-09-13T12:50:44.997Z",
+      "dateTime": "2018-09-13T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -94,7 +94,7 @@
     {
       "id": "8",
       "title": "Event Title H",
-      "dateTime": "2018-09-08T12:50:44.997Z",
+      "dateTime": "2018-09-17T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -107,7 +107,7 @@
     {
       "id": "9",
       "title": "Event Title I",
-      "dateTime": "2018-09-12T12:50:44.997Z",
+      "dateTime": "2018-09-11T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -120,7 +120,7 @@
     {
       "id": "10",
       "title": "Event Title J",
-      "dateTime": "2018-09-10T12:50:44.997Z",
+      "dateTime": "2018-09-14T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Brisbane",
@@ -133,7 +133,7 @@
     {
       "id": "11",
       "title": "Event Title Sydney",
-      "dateTime": "2018-09-15T12:50:44.997Z",
+      "dateTime": "2018-09-15T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Sydney",
@@ -146,7 +146,7 @@
     {
       "id": "12",
       "title": "Event Title Sydney 2",
-      "dateTime": "2018-09-12T12:50:44.997Z",
+      "dateTime": "2018-09-16T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Sydney",
@@ -159,7 +159,7 @@
     {
       "id": "13",
       "title": "Event Title Melbourne",
-      "dateTime": "2018-09-07T12:50:44.997Z",
+      "dateTime": "2018-09-10T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Sydney",
@@ -172,7 +172,7 @@
     {
       "id": "14",
       "title": "Event Title Melbourne 2",
-      "dateTime": "2018-09-09T12:50:44.997Z",
+      "dateTime": "2018-09-17T23:12:30.372Z",
       "image": "http://via.placeholder.com/100x100",
       "availSeats": "128",
       "location": "Sydney",
